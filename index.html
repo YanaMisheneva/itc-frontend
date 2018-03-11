@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <script>
+    function plus(a,b) {
+    	return a+b;
+    }
+    console.log (plus(1,2));
+
+let sum=0;
+    function multiply(a,b) {
+    	for (let i=1; i<b; i++){
+    		sum=plus(sum,a);
+    	}
+    	return(sum);
+    }
+    console.log(multiply(3,10));
+
+
+    function mergeArrays(mas1,mas2){
+    	return mas1.concat(mas2);
+    }
+    console.log (mergeArrays([1,2,3],[4,5]));
+
+
+    const people=[
+    	{pol: 'female', name:'Кира', film:'Мальчик в полосатой пижаме'},
+    	{pol: 'male', name:'Марк', film:'Одаренная'},
+    	{pol: 'male', name:'Денис', film:'Воровка книг'},
+    	{pol: 'female', name:'Таня', film:'Жутко громко, запредельно близко'}
+    ];
+    function filterFemales(people){
+    	for (let i=0; i<people.length; i++){
+    		if (people[i].pol=='female') {
+    			return (people[i].name);
+    		}
+    	}
+    }
+    console.log(filterFemales(people));
+
+    function getQuadrant(x, y){
+    	if (x>0){
+    		if (y>0){
+    			return('I')
+    		}
+    		else {
+    			return('IV')
+    		}
+    	}
+    	if (x<0){
+    		if (y>0){
+    			return('II')
+    		}
+    		else{
+    			return('III');
+    		}
+    	}
+    	if (((x==0)&&(y!=0))||((x!=0)&&(y==0))){
+    		return('Точка лежит на оси координат');
+    	}
+    	if ((x==0)&&(y==0)){
+    		return('Точка лежит в центре системы координат');
+    	}
+    }
+    console.log(getQuadrant(1,2));
+    console.log(getQuadrant(-1,2));
+    console.log(getQuadrant(-2,-3));
+    console.log(getQuadrant(4,-7));
+    console.log(getQuadrant(0,0));
+
+
+
+    function plus1(){
+    	let sum=0;
+    	for (let i=0;i<arguments.length; i++){
+    		sum+=arguments[i];
+    	}
+    	return(sum);
+    }
+    console.log(plus(2,3,5,7,3));
+
+
+
+    function multiplyAll(mas){
+    	let result=mas.reduce(function(a,b){
+    		return a*b;
+    	});
+    	return(result);
+    }
+    console.log(multiplyAll([1,2,3,4,5]));
+
+
+	function filterFemales(people){
+    	let females=people.filter(people=>people.pol=='female');
+    	for (let i=0; i<females.length; i++){		
+    			return(females[i].name) ;   
+    		}
+    }
+    console.log(filterFemales(people));
+
+
+  
+
+    function objectToQueryString(obj){
+        let str = "";
+        for (let key in obj) {
+                if (str != "") {
+                str += "&";
+            }
+        str += key + "=" + encodeURIComponent(obj[key]);
+        }
+        return(str);
+    }
+    console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }));
+
+
+    
+    function getIn(obj, path, default_mean) {
+        for (let i=0; i<path.length; i++){
+            obj=obj[path[i]];
+        }
+        if (obj!='undefind'){
+        	return obj;
+        }
+        else {
+        	return default_mean;
+        }		
+    }
+    const person = {
+        address: {
+            street: "Улица Ботаническая"
+        }
+    };
+    console.log(getIn(person, ['address', 'street'], 'Бомж'));
+    
+  </script>
+
+</body>
+
+</html>
